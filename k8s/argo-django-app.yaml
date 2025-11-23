@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/FedotovMS/devops-final-project.git
-    targetRevision: devops-final-project
+    targetRevision: main
     path: charts/django-app
     helm:
       releaseName: django-app
