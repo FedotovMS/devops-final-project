@@ -1,0 +1,13 @@
+grafana:
+  adminUser: admin
+  adminPassword: admin123
+  service:
+    type: ClusterIP
+    port: 80
+
+prometheus:
+  service:
+    type: ClusterIP
+
+alertmanager:
+  enabled: false

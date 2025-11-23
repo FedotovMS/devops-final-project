@@ -1,0 +1,23 @@
+controller:
+  serviceType: ClusterIP
+  jenkinsUrlProtocol: http
+
+  image:
+    tag: "2.462.3-jdk17"
+
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "512Mi"
+    limits:
+      cpu: "500m"
+      memory: "1Gi"
+
+  
+  installPlugins: []
+
+persistence:
+  enabled: false
+
+agent:
+  enabled: true
