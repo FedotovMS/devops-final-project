@@ -1,0 +1,31 @@
+image:
+  repository: 764520352358.dkr.ecr.eu-central-1.amazonaws.com/devops-final-mykola-dev-django-app
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 8000
+  targetPort: 8000
+
+env:
+  DJANGO_SETTINGS_MODULE: "app.settings"
+  DJANGO_DEBUG: "False"
+  DJANGO_ALLOWED_HOSTS: "*"
+  # TODO: тут потім можна додати URL бази з RDS, якщо будеш його підключати
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "256Mi"
+  limits:
+    cpu: "300m"
+    memory: "512Mi"
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
